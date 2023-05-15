@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nginx-deployment-vs
+spec:
+  hosts:
+  - "sar.sarthusofts.com"
+  gateways:
+  - nginx-deployment-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: nginx-deployment
+        port:
+          number: 80
