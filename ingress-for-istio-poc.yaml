@@ -4,10 +4,12 @@ metadata:
   name: simple-ingress
   namespace: istio-system
   annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
+    #nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    #nginx.ingress.kubernetes.io/rewrite-target: /
+    #nginx.ingress.kubernetes.io/secure-backends: "true"
 spec:
+  ingressClassName: nginx
   rules:
     - host: sar.sarthusofts.com
       http:
