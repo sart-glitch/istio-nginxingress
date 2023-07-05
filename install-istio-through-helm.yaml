@@ -8,3 +8,4 @@ helm ls -n istio-system
 helm status istiod -n istio-system
 kubectl get deployments -n istio-system --output wide
 helm install istio-ingress istio/gateway -n istio-system --wait
+kubectl label namespace default istio-injection=enabled --overwrite //Inject the istio in the namespace that you want
